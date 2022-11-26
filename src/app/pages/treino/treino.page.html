@@ -1,0 +1,126 @@
+<ion-fab>
+  <ion-fab-button routerLink="/cadastro">
+    <ion-icon name="arrow-back-outline"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+
+<ion-content [fullscreen]="true">
+  <div class="container">
+    <h1>Meu Treino</h1>
+
+    <div class="row">
+      <div class="column-title">
+        <h3>Quantidade</h3>
+      </div>
+      <div class="column-title">
+        <h3>Exercício</h3>
+      </div>
+      <div class="column-title">
+        <h3>Repetições</h3>
+      </div>
+    </div>
+
+    <ion-list class="list">
+      <ion-item-sliding *ngFor="let exercicio of exercicios; let i = index">
+        <ion-item class="item">
+          <h3 class="item-exercicio">{{ exercicio.quantidade }}</h3>
+          <h3 class="item-exercicio">{{ exercicio.nome }}</h3>
+          <h3 class="item-exercicio">{{ exercicio.repeticoes }}</h3>
+
+          <!-- <p>
+            {{ exercicio.quantidade }} séries de {{ exercicio.repeticoes }}
+            repetições
+          </p> -->
+        </ion-item>
+        <ion-item-options side="end">
+          <ion-item-option color="danger" (click)="excluirExercicio(i)">
+            <ion-icon name="trash-outline"></ion-icon>
+          </ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+
+    <!--  <div class="training-container">
+        <div class="column">
+          <div class="column-title">
+            <h3>Quantidade</h3>
+          </div>
+          <div class="column-input"></div>
+        </div>
+        <div class="column">
+          <div class="column-title">
+            <h3>Exercício</h3>
+          </div>
+          <div class="column-input-custom">
+            <input type="text" />
+          </div>
+        </div>
+        <div class="column">
+          <div class="column-title">
+            <h3>Repetições</h3>
+          </div>
+          <div class="column-input">
+            <input type="number" />
+          </div>
+        </div>
+      </div> -->
+
+    <div class="footer">
+      <div>
+        <ion-button expand="block" class="button" id="open-modal"
+          >Adicionar Novo Treino</ion-button
+        >
+      </div>
+      <ion-modal
+        trigger="open-modal"
+        [initialBreakpoint]="0.5"
+        handleBehavior="cycle"
+        handle="false"
+      >
+        <ng-template>
+          <ion-content class="ion-modal">
+            <div class="ion-margin-top">
+              <form>
+                <div class="input-container">
+                  <input
+                    type="text"
+                    name="nome"
+                    placeholder="Exercício"
+                    [(ngModel)]="novoExercicio.nome"
+                  />
+                </div>
+                <div class="input-container">
+                  <input
+                    name="quantidade"
+                    type="number"
+                    placeholder="Quantidade"
+                    [(ngModel)]="novoExercicio.quantidade"
+                  />
+                </div>
+                <div class="input-container">
+                  <input
+                    name="repeticoes"
+                    type="number"
+                    placeholder="Repetições"
+                    [(ngModel)]="novoExercicio.repeticoes"
+                  />
+                </div>
+
+                <div class="footer-modal">
+                  <div>
+                    <ion-button
+                      expand="block"
+                      class="button"
+                      (click)="addExercicio()"
+                      >Cadastrar</ion-button
+                    >
+                  </div>
+                </div>
+              </form>
+            </div>
+          </ion-content>
+        </ng-template>
+      </ion-modal>
+    </div>
+  </div>
+</ion-content>

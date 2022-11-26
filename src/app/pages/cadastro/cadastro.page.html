@@ -1,0 +1,36 @@
+<ion-fab>
+  <ion-fab-button routerLink="/home">
+    <ion-icon name="arrow-back-outline"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+
+<ion-content [fullscreen]="true">
+  <div class="container">
+    <h1>Meus Dados</h1>
+    <form>
+      <div class="input-container">
+        <input type="text" placeholder="Nome" />
+      </div>
+      <div class="input-container">
+        <input type="text" placeholder="Idade" />
+      </div>
+      <div class="input-container">
+        <input type="text" placeholder="Sexo" />
+      </div>
+      <div class="input-container">
+        <input type="number" placeholder="Peso" />
+      </div>
+      <div class="input-container">
+        <input type="number" placeholder="Altura" />
+      </div>
+
+      <div class="footer">
+        <div>
+          <ion-button expand="block" class="button" routerLink="/treino"
+            >Cadastrar</ion-button
+          >
+        </div>
+      </div>
+    </form>
+  </div>
+</ion-content>
